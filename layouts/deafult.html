@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+{% if page.excerpt %}<meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}">{% endif %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+</head>
+<body class="blog-body">
+
+<header class="blog-nav">
+  <a href="{{ '/' | relative_url }}" class="logo">alish<span class="dot">.</span>gc</a>
+  <a href="{{ '/blog/' | relative_url }}" class="blog-nav__link">Blog</a>
+</header>
+
+<main class="blog-shell">
+  {{ content }}
+</main>
+
+<footer class="blog-footer">
+  <span>&copy; {{ site.time | date: '%Y' }} Alish G.C.</span>
+  <a href="mailto:{{ site.email }}">Email</a>
+  <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>
+  <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener">LinkedIn</a>
+</footer>
+
+</body>
+</html>

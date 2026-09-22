@@ -1,23 +1,26 @@
-title: alish.gc
-description: "Alish GC — BIT student at Amrit Campus, Tribhuvan University. Notes on software, learning, and student life."
-url: "https://alishgc.com.np"   # change to your actual domain or https://username.github.io
-baseurl: ""                      # leave empty unless the site lives in a subpath
+title: "alish.gc"
+description: "Notes from a BIT student in Kathmandu."
+email: hi@alishgc.com.np
+github_username: alishgc
+linkedin_username: alishgc
 
-author:
-  name: Alish GC
-  email: hi@alishgc.com.np
-  github: alishgc
-  linkedin: alishgc
-
+# Markdown / build
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
-# Clean post URLs: /blog/welcome-to-my-blog/
+# Clean permalinks: /blog/my-post-title/
 permalink: /blog/:title/
 
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      author: "Alish GC"
+# Don't let Jekyll try to process the local-preview copies or docs
+exclude:
+  - preview/
+  - README.md
+  - node_modules/
+  - Gemfile
+  - Gemfile.lock
+
+# No plugins required — everything here uses only what
+# GitHub Pages' default Jekyll build already supports.
+plugins: []

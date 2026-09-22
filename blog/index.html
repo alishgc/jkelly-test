@@ -1,34 +1,38 @@
 ---
 layout: default
-title: Articles - Alish G.C.
+title: Blog
+permalink: /blog/
 ---
-<div class="blog-container">
-  <header class="blog-index-header">
-    <h1>Writing</h1>
-    <p>Thoughts on technology, backend development, and life.</p>
-  </header>
+<div class="blog-index">
 
-  <div class="blog-grid">
-    {% for post in site.posts %}
-    <a href="{{ post.url }}" class="post-card">
-      <img src="{{ post.thumbnail | default: '/assets/thumbnail-placeholder.jpg' }}" alt="{{ post.title }}" class="card-thumb">
-      <div class="card-content">
-        <div class="card-meta">
-          {% if post.tags.size > 0 %}<span class="card-tag">{{ post.tags.first }}</span> <span>&middot;</span>{% endif %}
-          <span class="card-readtime">
-            {% assign words = post.content | number_of_words %}
-            {% assign readtime = words | divided_by: 180 %}
-            {% if readtime == 0 %}1{% else %}{{ readtime }}{% endif %} min read
-          </span>
+  <h1 class="blog-index__title">Blog</h1>
+  <p class="blog-index__sub">Notes on code, coursework, and whatever I'm building.</p>
+
+  {% if site.posts.size == 0 %}
+    <p class="blog-index__empty">No posts yet — check back soon.</p>
+  {% else %}
+    <div class="post-list">
+      {% for post in site.posts %}
+      <a class="post-card" href="{{ post.url | relative_url }}">
+        {% if post.thumbnail %}
+        <div class="post-card__thumb">
+          <img src="{{ post.thumbnail | relative_url }}" alt="" loading="lazy">
         </div>
-        <h2 class="card-title">{{ post.title }}</h2>
-        <p class="card-desc">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
-        <div class="card-footer">
-          <span class="card-date">{{ post.date | date: "%b %d, %Y" }}</span>
-          <span class="card-read">Read &rarr;</span>
+        {% endif %}
+        <div class="post-card__body">
+          <p class="post-card__meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+            <span class="post-card__dot">&middot;</span>
+            <span>{{ post.content | strip_html | number_of_words | divided_by: 200 | at_least: 1 }} min read</span>
+          </p>
+          <h2 class="post-card__title">{{ post.title }}</h2>
+          {% if post.excerpt %}
+          <p class="post-card__excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
+          {% endif %}
         </div>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
+      </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
 </div>
