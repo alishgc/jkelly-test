@@ -1,0 +1,23 @@
+title: alish.gc
+description: "Alish GC — BIT student at Amrit Campus, Tribhuvan University. Notes on software, learning, and student life."
+url: "https://alishgc.com.np"   # change to your actual domain or https://username.github.io
+baseurl: ""                      # leave empty unless the site lives in a subpath
+
+author:
+  name: Alish GC
+  email: hi@alishgc.com.np
+  github: alishgc
+  linkedin: alishgc
+
+markdown: kramdown
+
+# Clean post URLs: /blog/welcome-to-my-blog/
+permalink: /blog/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Alish GC"
