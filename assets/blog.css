@@ -1,0 +1,59 @@
+:root {
+  --b-bg: #ffffff;
+  --b-text: #242424;
+  --b-text-light: #6b6b6b;
+  --b-border: #f2f2f2;
+  --b-accent: #f5a73b;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Merriweather', Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --b-bg: #0f111a;
+    --b-text: #f0ede6;
+    --b-text-light: #a0a6b8;
+    --b-border: #262938;
+  }
+}
+
+body { margin: 0; background: var(--b-bg); color: var(--b-text); font-family: var(--font-body); line-height: 1.8; }
+a { text-decoration: none; color: inherit; }
+
+.blog-nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 5%; border-bottom: 1px solid var(--b-border); font-family: var(--font-heading); }
+.blog-nav .logo { font-weight: 700; font-size: 1.2rem; }
+.blog-nav .dot { color: var(--b-accent); }
+
+.blog-container { max-width: 1000px; margin: 0 auto; padding: 60px 24px; }
+.blog-index-header { margin-bottom: 48px; text-align: center; }
+.blog-index-header h1 { font-family: var(--font-heading); font-size: 3rem; margin: 0 0 10px 0; }
+.blog-index-header p { color: var(--b-text-light); font-family: var(--font-heading); }
+
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 32px; }
+.post-card { display: flex; flex-direction: column; border: 1px solid var(--b-border); border-radius: 8px; overflow: hidden; transition: transform 0.2s; background: var(--b-bg); }
+.post-card:hover { transform: translateY(-4px); border-color: var(--b-accent); }
+.card-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-bottom: 1px solid var(--b-border); }
+.card-content { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.card-meta { display: flex; gap: 8px; font-family: var(--font-heading); font-size: 0.8rem; color: var(--b-text-light); margin-bottom: 12px; }
+.card-tag { color: var(--b-accent); text-transform: uppercase; font-weight: 700; }
+.card-title { font-family: var(--font-heading); font-size: 1.4rem; margin: 0 0 12px 0; line-height: 1.3; }
+.card-desc { font-size: 0.9rem; color: var(--b-text-light); margin: 0 0 20px 0; flex: 1; }
+.card-footer { display: flex; justify-content: space-between; font-family: var(--font-heading); font-size: 0.85rem; border-top: 1px solid var(--b-border); padding-top: 16px; }
+.card-read { color: var(--b-accent); font-weight: 700; }
+
+.post-article { max-width: 680px; margin: 0 auto; padding: 60px 24px; }
+.post-header { margin-bottom: 40px; }
+.post-meta { display: flex; align-items: center; gap: 12px; font-family: var(--font-heading); font-size: 0.9rem; color: var(--b-text-light); margin-bottom: 16px; }
+.tag { background: var(--b-border); padding: 4px 12px; border-radius: 100px; color: var(--b-text); font-size: 0.8rem; }
+.post-title { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; margin: 0 0 16px 0; }
+.post-hero-image { width: 100%; border-radius: 8px; margin-top: 32px; }
+.post-body h2, .post-body h3 { font-family: var(--font-heading); margin-top: 40px; }
+.post-body img { max-width: 100%; border-radius: 8px; }
+.post-body pre { background: #181a24; color: #f0ede6; padding: 16px; border-radius: 8px; overflow-x: auto; font-family: monospace; font-size: 0.9rem; }
+
+.post-actions { margin: 40px 0; padding: 24px 0; border-top: 1px solid var(--b-border); border-bottom: 1px solid var(--b-border); }
+.share-btn { display: flex; align-items: center; gap: 8px; background: none; border: 1px solid var(--b-text-light); color: var(--b-text); padding: 10px 20px; border-radius: 100px; cursor: pointer; font-family: var(--font-heading); transition: all 0.2s; }
+.share-btn:hover { border-color: var(--b-accent); color: var(--b-accent); }
+
+.blog-footer { padding: 40px 24px; text-align: center; border-top: 1px solid var(--b-border); font-family: var(--font-heading); color: var(--b-text-light); font-size: 0.9rem; }
+.blog-footer .logo { display: block; margin-bottom: 16px; font-size: 1.2rem; color: var(--b-text); }
+.social-links { margin-top: 12px; display: flex; justify-content: center; gap: 12px; }

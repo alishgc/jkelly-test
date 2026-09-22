@@ -1,4 +1,34 @@
 ---
-layout: blog
-title: Blog
+layout: default
+title: Articles - Alish G.C.
 ---
+<div class="blog-container">
+  <header class="blog-index-header">
+    <h1>Writing</h1>
+    <p>Thoughts on technology, backend development, and life.</p>
+  </header>
+
+  <div class="blog-grid">
+    {% for post in site.posts %}
+    <a href="{{ post.url }}" class="post-card">
+      <img src="{{ post.thumbnail | default: '/assets/thumbnail-placeholder.jpg' }}" alt="{{ post.title }}" class="card-thumb">
+      <div class="card-content">
+        <div class="card-meta">
+          {% if post.tags.size > 0 %}<span class="card-tag">{{ post.tags.first }}</span> <span>&middot;</span>{% endif %}
+          <span class="card-readtime">
+            {% assign words = post.content | number_of_words %}
+            {% assign readtime = words | divided_by: 180 %}
+            {% if readtime == 0 %}1{% else %}{{ readtime }}{% endif %} min read
+          </span>
+        </div>
+        <h2 class="card-title">{{ post.title }}</h2>
+        <p class="card-desc">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+        <div class="card-footer">
+          <span class="card-date">{{ post.date | date: "%b %d, %Y" }}</span>
+          <span class="card-read">Read &rarr;</span>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>

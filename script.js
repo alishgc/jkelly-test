@@ -1,16 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-  /* ===============================
-     PRELOADER — multilingual greeting cycle
-     Ends on Nepali, since that's home.
-  =============================== */
   const greetings = ['Hello', 'Hallo', 'Bonjour', 'こんにちは', '你好', 'Hola', 'مرحبا', 'नमस्ते'];
   const preloader = document.getElementById('preloader');
   const word = document.getElementById('preloaderWord');
   const progress = document.getElementById('preloaderProgress');
 
   let i = 0;
-  const stepTime = 190; // ms per word
+  const stepTime = 190; 
 
   progress.style.transition = `width ${greetings.length * stepTime}ms linear`;
   requestAnimationFrame(() => { progress.style.width = '100%'; });
@@ -31,16 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
     startTypewriter();
   }
 
-  // Fallback in case something blocks the interval (e.g. tab backgrounded)
   window.addEventListener('load', () => {
     setTimeout(() => {
       if (!preloader.classList.contains('is-done')) finishLoad();
     }, 3500);
   });
 
-  /* ===============================
-     TYPEWRITER — types "Alish" next to the blinking cursor
-  =============================== */
   function startTypewriter(){
     const target = document.getElementById('typeTarget');
     const text = 'Alish';
@@ -51,5 +42,4 @@ document.addEventListener('DOMContentLoaded', () => {
       if (n === text.length) clearInterval(type);
     }, 100);
   }
-
 });
