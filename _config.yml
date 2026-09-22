@@ -1,0 +1,11 @@
+title: Alish's Blog
+description: Notes, projects, and things I'm learning
+url: "https://alishgc.com.np"
+baseurl: ""
+
+# Jekyll processes _posts automatically, this just tells it
+# to also copy these existing files/folders as-is
+include: [".nojekyll"]
+
+# Uses GitHub Pages' built-in Jekyll — no plugins needed
+markdown: kramdown

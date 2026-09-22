@@ -1,0 +1,42 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="{{ site.baseurl }}/">Home</a>
+      <a href="{{ site.baseurl }}/blog/">Blog</a>
+    </nav>
+  </header>
+
+  <main class="blog-list">
+    <h1>Blog</h1>
+
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </main>
+
+  <footer>
+    <p>&copy; {{ 'now' | date: "%Y" }} Alish</p>
+  </footer>
+
+</body>
+</html>
